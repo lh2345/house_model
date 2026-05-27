@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>100 平一层住宅 3D 设计图</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.184.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="viewer-panel" aria-label="3D 房屋模型查看器">
+        <canvas id="house-canvas" tabindex="0" aria-label="可旋转、平移和缩放的 3D 房屋模型"></canvas>
+        <div id="viewer-message" class="viewer-message" role="status" hidden></div>
+        <div class="viewer-badge">主体约 10m x 10m / 一层建筑约 100㎡</div>
+        <div class="legend" aria-label="图例">
+          <span><i class="legend-dot living"></i>客餐厨</span>
+          <span><i class="legend-dot bedroom"></i>卧室</span>
+          <span><i class="legend-dot service"></i>卫浴/收纳</span>
+          <span><i class="legend-dot outdoor"></i>露台</span>
+        </div>
+      </section>
+
+      <aside class="info-panel">
+        <p class="eyebrow">Interactive 3D House Plan</p>
+        <h1>现代舒适型一层住宅设计</h1>
+        <p class="intro">
+          单层建筑面积约 100㎡，规划为两房两厅一厨一卫，强调开阔公共区、充足采光和清晰动线。
+          你可以拖拽旋转模型、滚轮缩放、右键平移，查看整体布局与空间关系。
+        </p>
+
+        <div class="controls" aria-label="模型控制">
+          <button id="reset-view" type="button">重置视角</button>
+          <button id="toggle-roof" type="button" aria-pressed="false">隐藏屋顶</button>
+          <button id="toggle-walls" type="button" aria-pressed="false">半透明墙体</button>
+          <button id="toggle-labels" type="button" aria-pressed="false">隐藏标注</button>
+        </div>
+
+        <section class="summary-card">
+          <h2>空间分配</h2>
+          <dl class="room-list">
+            <div>
+              <dt>客餐厨一体区</dt>
+              <dd>约 34㎡，南向落地窗连接露台</dd>
+            </div>
+            <div>
+              <dt>主卧</dt>
+              <dd>约 14㎡，靠东南角，采光充足</dd>
+            </div>
+            <div>
+              <dt>次卧/书房</dt>
+              <dd>约 12㎡，适合儿童房或居家办公</dd>
+            </div>
+            <div>
+              <dt>卫生间与家政储物</dt>
+              <dd>约 10㎡，干湿分区，贴近卧室动线</dd>
+            </div>
+            <div>
+              <dt>玄关、厨房补充区与走廊</dt>
+              <dd>约 20㎡，包含入户、鞋柜、厨房操作面和交通空间</dd>
+            </div>
+            <div>
+              <dt>墙体与结构占用</dt>
+              <dd>约 9㎡，总建筑占地按 10m x 10m 估算为约 100㎡</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="summary-card compact">
+          <h2>交互说明</h2>
+          <ul>
+            <li>左键拖拽：旋转观看视角</li>
+            <li>滚轮或触控板：放大/缩小</li>
+            <li>右键拖拽：平移模型</li>
+            <li>方向键：键盘平移视图</li>
+            <li>按钮：切换屋顶、墙体透明度和房间标注</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <noscript>请启用 JavaScript（脚本）以查看可交互 3D 房屋模型。</noscript>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
